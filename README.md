@@ -1,3 +1,3 @@
 # first-repo
-This is my first Git Repository.<br>
+Hello welcome to my git account.<br>
 Author - Tanish Kapoor
