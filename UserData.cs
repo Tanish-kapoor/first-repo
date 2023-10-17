@@ -23,8 +23,18 @@ class Program
             {
                 User user = new User();
 
-                Console.Write($"Enter ID for User {i}: ");
-                user.ID = Convert.ToInt32(Console.ReadLine());
+                bool isUniqueId = false;
+                do
+                {
+                    Console.Write($"Enter ID for User {i}: ");
+                    user.ID = Convert.ToInt32(Console.ReadLine());
+                    isUniqueId = !users.Exists(u => u.ID == user.ID);
+
+                    if (!isUniqueId)
+                    {
+                        Console.WriteLine("User ID already exists. Please enter a unique ID.");
+                    }
+                } while (!isUniqueId);
 
                 Console.Write($"Enter Name for User {i}: ");
                 user.Name = Console.ReadLine();
@@ -34,8 +44,6 @@ class Program
 
                 users.Add(user);
             }
-
-            // Operations: ADD, DELETE, UPDATE, SEARCH
             Console.WriteLine("\nAvailable Operations:");
             Console.WriteLine("1. ADD User");
             Console.WriteLine("2. DELETE User");
@@ -50,8 +58,19 @@ class Program
                 case 1:
                     // ADD User
                     User newUser = new User();
-                    Console.Write("Enter ID for the new user: ");
-                    newUser.ID = Convert.ToInt32(Console.ReadLine());
+                    bool isUnique = false;
+                    do
+                    {
+                        Console.Write("Enter ID for the new user: ");
+                        newUser.ID = Convert.ToInt32(Console.ReadLine());
+                        isUnique = !users.Exists(u => u.ID == newUser.ID);
+
+                        if (!isUnique)
+                        {
+                            Console.WriteLine("User ID already exists. Please enter a unique ID.");
+                        }
+                    } while (!isUnique);
+
                     Console.Write("Enter Name for the new user: ");
                     newUser.Name = Console.ReadLine();
                     Console.Write("Enter Gender for the new user: ");
@@ -61,9 +80,8 @@ class Program
                     break;
 
                 case 2:
-                    // DELETE User
                     Console.Write("Enter ID of the user to delete: ");
-                    int deleteID = Convert.ToInt(Console.ReadLine());
+                    int deleteID = Convert.ToInt32(Console.ReadLine());
                     User userToDelete = users.Find(u => u.ID == deleteID);
                     if (userToDelete != null)
                     {
@@ -77,7 +95,6 @@ class Program
                     break;
 
                 case 3:
-                    // UPDATE User
                     Console.Write("Enter ID of the user to update: ");
                     int updateID = Convert.ToInt32(Console.ReadLine());
                     User userToUpdate = users.Find(u => u.ID == updateID);
@@ -96,7 +113,6 @@ class Program
                     break;
 
                 case 4:
-                    // SEARCH User
                     Console.Write("Enter ID of the user to search: ");
                     int searchID = Convert.ToInt32(Console.ReadLine());
                     User foundUser = users.Find(u => u.ID == searchID);
@@ -114,8 +130,6 @@ class Program
                     Console.WriteLine("Invalid operation number.");
                     break;
             }
-
-            // Display users
             Console.WriteLine("\nList of Users:");
             foreach (var user in users)
             {
@@ -132,4 +146,3 @@ class Program
         }
     }
 }
-
