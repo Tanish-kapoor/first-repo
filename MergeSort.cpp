@@ -42,7 +42,7 @@ void mergeSort(int array[], int lb, int ub) {
     }
 }
 int main() {
-    int array[] = {12, 11, 13, 5, 6, 7};
+    int array[] = {5, 6, 8, 1, 3, 2, 9, 0};
     int size = sizeof(array) / sizeof(array[0]);
 
     cout << "Original array: ";
