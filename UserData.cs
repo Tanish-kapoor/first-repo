@@ -114,7 +114,7 @@ class Program
                         Console.Write("Enter new Name: ");
                         userToUpdate.Name = Console.ReadLine();
                         Console.Write("Enter new Gender (M/F): ");
-                        userToUpdate.Gender = Console.ReadLine().ToUpper(); // Convert input to uppercase
+                        userToUpdate.Gender = Console.ReadLine().ToUpper();
 
                         if (userToUpdate.Gender != "M" && userToUpdate.Gender != "F")
                         {
