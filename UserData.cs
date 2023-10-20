@@ -18,6 +18,11 @@ class Program
         {
             Console.Write("Enter the number of users: ");
             int numberOfUsers = Convert.ToInt32(Console.ReadLine());
+            
+            if (numberOfUsers <= 0)
+            {
+                throw new ArgumentException("Number of users cannot be negative or zero.");
+            }
 
             for (int i = 1; i <= numberOfUsers; i++)
             {
@@ -39,8 +44,13 @@ class Program
                 Console.Write($"Enter Name for User {i}: ");
                 user.Name = Console.ReadLine();
 
-                Console.Write($"Enter Gender for User {i}: ");
-                user.Gender = Console.ReadLine();
+                Console.Write($"Enter Gender for User {i} (M/F): ");
+                user.Gender = Console.ReadLine().ToUpper(); // Convert input to uppercase
+
+                if (user.Gender != "M" && user.Gender != "F")
+                {
+                    throw new ArgumentException("Gender must be 'M' or 'F'.");
+                }
 
                 users.Add(user);
             }
@@ -94,7 +104,8 @@ class Program
                     }
                     break;
 
-                case 3:
+                 case 3:
+                    // UPDATE User
                     Console.Write("Enter ID of the user to update: ");
                     int updateID = Convert.ToInt32(Console.ReadLine());
                     User userToUpdate = users.Find(u => u.ID == updateID);
@@ -102,9 +113,17 @@ class Program
                     {
                         Console.Write("Enter new Name: ");
                         userToUpdate.Name = Console.ReadLine();
-                        Console.Write("Enter new Gender: ");
-                        userToUpdate.Gender = Console.ReadLine();
-                        Console.WriteLine("User updated successfully.");
+                        Console.Write("Enter new Gender (M/F): ");
+                        userToUpdate.Gender = Console.ReadLine().ToUpper(); // Convert input to uppercase
+
+                        if (userToUpdate.Gender != "M" && userToUpdate.Gender != "F")
+                        {
+                            Console.WriteLine("Invalid input. Gender must be 'M' or 'F'.");
+                        }
+                        else
+                        {
+                            Console.WriteLine("User updated successfully.");
+                        }
                     }
                     else
                     {
