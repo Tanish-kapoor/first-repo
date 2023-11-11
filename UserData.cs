@@ -17,14 +17,14 @@ class Program
         try
         {
             Console.Write("Enter the number of users: ");
-            int numberOfUsers = Convert.ToInt32(Console.ReadLine());
+            int nUser = Convert.ToInt32(Console.ReadLine());
             
-            if (numberOfUsers <= 0)
+            if (nUser <= 0)
             {
                 throw new ArgumentException("Number of users cannot be negative or zero.");
             }
 
-            for (int i = 1; i <= numberOfUsers; i++)
+            for (int i = 1; i <= nUser; i++)
             {
                 User user = new User();
 

@@ -18,7 +18,7 @@ void quickSort(int arr[], int low, int high) {
     if (low < high) {
         int pivotIndex = partition(arr, low, high);
         quickSort(arr, low, pivotIndex - 1);
-        quickSort(arr, pivotIndex + 1, high);
+        quickSort(arr, pivotIndex, high);
     }
 }
 
@@ -29,13 +29,13 @@ int main() {
     cout << "Original array: ";
     for (int i = 0; i < size; i++) {
         cout << arr[i] << " ";
-    }
+    }                                                                                                                                                                                                                                                           
     cout << endl;
 
     quickSort(arr, 0, size - 1);
 
     cout << "Sorted array: ";
-    for (int i = 0; i < size; i++) {
+    for (int i = 0; i < size; i++) {.0
         cout << arr[i] << " ";
     }
     cout << endl;

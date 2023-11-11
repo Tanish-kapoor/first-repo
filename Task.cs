@@ -8,11 +8,11 @@ public class HelloWorld{
 		XmlElement XEle = doc4.CreateElement("Student");
 		XEle.SetAttribute("ID", "3");
 		XEle.SetAttribute("Name", "XYZ");
-		int nodeld=1;//For Editing
+		int nodeld=1;                                                              //For Editing
 	    XmlNode node=doc4.SelectSingleNode("/Students/Student[@ID="+nodeld+"]");
 	    node.Attributes["Name"].Value="Tanish Kapoor";
 	    node.Attributes["ID"].Value="111";
-        int nodeld2=2;//For Deleting
+        int nodeld2=2;                                                             //For Deleting
 	    XmlNode nodeToDelete=doc4.SelectSingleNode("/Students/Student[@ID="+nodeld2+"]");
 	    if(nodeToDelete!=null){
 	        nodeToDelete.ParentNode.RemoveChild(nodeToDelete);
