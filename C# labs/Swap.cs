@@ -1,5 +1,5 @@
 using System;
-public class charu
+public class swpInt
 {
     public static void swapInt(ref int num1, ref int num2)
     {
