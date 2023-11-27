@@ -1,5 +1,5 @@
 using System;
-public class funcexer6
+public class charu
 {
     public static void swapInt(ref int num1, ref int num2)
     {
